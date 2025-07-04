@@ -1,0 +1,67 @@
+{%extends 'parent.html'%}
+{%load static%}
+{%block body%}
+    <div class="row bg-primary">
+    <div class="col-sm-8  mx-auto">
+        <form action="{%url 'mainapp:contactus'%}" method="post" class="my-5 p-5 rounded-2 bg-light shadow-lg  ">
+            {% csrf_token %}
+            <div class="text-center w-75 mx-auto">
+                <img class="w-25 bg-light rounded-circle" src="{%static 'img/logo1.png'%}" alt="">
+            </div>
+            <br>
+            <h4 class="text-red text-center">Contact Us</h4>
+            <br><br>
+            <div class="row">
+            <div class="col-md-12">    
+            <input type="text" name="name" placeholder="Enter your name" class="form-control rounded-pill ps-3">
+            </div>
+            </div>
+            <br><br>
+            <div class="row">
+            <div class="col-md-12 ps-3">    
+            Select Gender:     
+            <input type="radio" name="gender" value="Male" class="form-check-input rounded-pill ">Male
+            <input type="radio" name="gender" value="Female" class="form-check-input rounded-pill ">Female
+            </div>
+            </div>
+            <br><br>
+            <div class="row">
+            <div class="col-md-12">    
+            <input type="text" name="address" placeholder="Enter your address" class="form-control rounded-pill ps-3">
+            </div>
+            </div>
+            <br><br>
+            <div class="row">
+            <div class="col-md-12">    
+            <input type="text" name="number" placeholder="Enter your Contact Number" class="form-control rounded-pill ps-3">
+            </div>
+            </div>
+            <br><br>
+            <div class="row">
+            <div class="col-md-12">    
+            <input type="text" name="email" placeholder="Enter your email address" class="form-control rounded-pill ps-3">
+            </div>
+            </div>
+            <br><br>
+            <div class="row">
+            <div class="col-md-12">    
+            <textarea name="enquiry" placeholder="Enter your enquiry" class="form-control rounded-pill ps-3"></textarea>
+            </div>
+            </div>
+            <br><br>
+            <button class="form-control btn bg-primary rounded-pill text-light" type="submit">Submit</button>
+            <br>
+            
+            
+            <p class=" text-center small">
+            <a href="{%url 'mainapp:Home'%}">Back to Home Page</a>
+            </p>
+        </form>
+     </div>   
+    </div> 
+    <div class="row bg-light">
+       <div class="col-md-12 bg-light p-4">
+        <small><p class="text-center my-auto">Copyright &#0169 2025 | <span class="fw-bold">NOU E-Gyan Portal, A Concept by Nalanda Open University, Bihar</span> </p></small>
+       </div>
+    </div>   
+{%endblock body%}

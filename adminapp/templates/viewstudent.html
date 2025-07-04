@@ -1,0 +1,49 @@
+{% extends 'adminparent.html' %}
+{% block body %}
+
+<div class="row col-sm-12">
+    <h1 style="text-align: center; color:maroon">View Students</h1>
+    <div class="row my-5">
+              <div class="col-sm-10 mx-auto table-responsive">
+                <table class="table table-light bg-light">
+                  <tr>
+                    <th>S.No</th>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Father's Name</th>
+                    <th>Mother's Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Program</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>Addresss</th>
+                    <th colspan="2">Action</th>
+                  </tr>
+                  {% for s in stu %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{s.roll_no}}</td>
+                    <td>{{s.name}}</td>
+                    <td>{{s.fname}}</td>
+                    <td>{{s.mname}}</td>
+                    <td>{{s.number}}</td>
+                    <td>{{s.email}}</td>
+                    <td>{{s.gender}}</td>
+                    <td>{{s.program}}</td>
+                    <td>{{s.branch}}</td>
+                    <td>{{s.year}}</td>
+                    <td>{{s.address}}</td>
+                    
+                    <td><a href="{%url 'adminapp:editstudent' s.email%}" class="btn btn-sm btn-warning"><i class="fa fa-edit"></i></a></td>
+                    <td><a href="{%url 'adminapp:delstudent' s.email%}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+             </div>
+</div>
+
+
+{% endblock body %}

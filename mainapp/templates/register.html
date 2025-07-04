@@ -1,0 +1,98 @@
+{%extends 'parent.html'%}
+{%load static%}
+{%block body%}
+    <div class="row bg-primary">
+    <div class="col-sm-8  mx-auto">
+        <form action="" method="post" class="my-5 p-5 rounded-2 bg-light shadow-lg  ">
+            {% csrf_token %}
+            <div class="text-center w-75 mx-auto">
+                <img class="w-25 bg-light rounded-circle" src="{%static 'img/logo1.png'%}" alt="">
+            </div>
+            <br>
+            <h4 class="text-red text-center">Student Registration</h4>
+            <br><br>
+            <div class="row">
+            <div class="col-md-6">    
+            <input type="number" name="rollno" placeholder="Enter Roll No" class="form-control rounded-pill ps-3">
+            </div>
+            <div class="col-md-6">
+            <input type="text" name="name" placeholder="Enter Your Name" class="form-control rounded-pill ps-3">
+            </div>
+            </div>
+            <br>
+            <div class="row">
+            <div class="col-md-6">    
+            <input type="text" name="fname" placeholder="Enter Your Father's Name" class="form-control rounded-pill ps-3">
+            </div>
+            <div class="col-md-6">
+            <input type="text" name="mname" placeholder="Enter Your Mother's Name Name" class="form-control rounded-pill ps-3">
+            </div>
+            </div>
+            <br>
+            <div class="row">
+            <div class="col-md-6 my-auto">
+            Select Gender:     
+            <input type="radio" name="gender" value="Male" class="form-check-input rounded-pill  ">Male
+            <input type="radio" name="gender" value="Female" class="form-check-input rounded-pill ">Female
+            </div>
+            <div class="col-md-6">
+             <textarea name="address" placeholder="Enter Your Address" class="form-control rounded-pill ps-4 pt-3"></textarea>
+            </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4">
+                    <select name="program" class="form-control rounded-pill ps-3" id="">
+                        
+                        <option value="">--Select Program--</option>
+                        {% for p in pr %}
+                        <option value="{{p.pname}}">{{p.pname}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="branch" class="form-control rounded-pill ps-3" id="">
+                        
+                        <option value="">--Select Branch--</option>
+                        {%for b in br %}
+                         <option value="{{b.bname}}">{{b.bname}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <select name="year" class="form-control rounded-pill ps-3" id="">
+                        <option value="">--Select Year--</option>
+                        {% for y in yr %}
+                        <option value="{{y.yname}}">{{y.yname}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="number" name="number" placeholder="Enter Your Number" class="form-control rounded-pill ps-3">
+                </div>
+                <div class="col-md-6">
+                    <input type="email" name="email" placeholder="Enter Your Email" class="form-control rounded-pill ps-3">
+                </div>
+            </div>
+            <br>
+            <button class="form-control btn bg-primary rounded-pill text-light" type="submit">Register</button>
+            <br>
+            
+            <p class="mt-4 text-center small">
+            <a href="{%url 'mainapp:Studentlogin'%}">Already Have Account?</a>
+            </p>
+            <p class=" text-center small">
+            <a href="{%url 'mainapp:Home'%}">Back to Home Page</a>
+            </p>
+        </form>
+     </div>   
+    </div> 
+    <div class="row bg-light">
+       <div class="col-md-12 bg-light p-4">
+        <small><p class="text-center my-auto">Copyright &#0169 2025 | <span class="fw-bold">NOU E-Gyan Portal, A Concept by Nalanda Open University, Bihar</span> </p></small>
+       </div>
+    </div>   
+{%endblock body%}

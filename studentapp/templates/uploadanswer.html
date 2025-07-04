@@ -1,0 +1,26 @@
+{% extends "studentparent.html" %}
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 style="text-align:center; color: maroon;">Upload Answer</h1>  
+             <div class="row my-5 text-dark">
+                <div class="col-sm-10 mx-auto shadow-lg p-5">
+                    
+                    <h5><b>Question: </b>{{que.que}}</h5>
+                    <p><b>Description: </b>{{que.desc}}</p>
+                   <form action="" class="d-flex">
+                     <input type="text" placeholder="Enter Your Answer" class="w-75 form-control rounded-start-pill ps-3 bg-light text dark"><input type="submit" value="Add" class="w-25 form-control rounded-end-pill btn btn-primary">
+                   </form>
+                   <div class="mt-3 p-5" style="height:50vh;box-shadow: 0px 0px 5px 5px inset grey; overflow:auto;">
+                     <ul type="none">
+                        <li class="bg-light my-3 shadow-lg p-3 rounded-start-pill ps-5">
+                            <h6 class="small"><i class="fa fa-user"></i> Nikhil</h6>
+                            <big>Hello</big>
+                        </li>
+                     </ul>
+                   </div>
+                </div>
+             </div>   
+        </div>
+    </div>
+{% endblock body %}

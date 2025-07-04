@@ -1,0 +1,81 @@
+{%extends 'adminparent.html'%}
+{%block body%}
+    
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 style="text-align:center; color: maroon;">Add Study Material</h1>   
+             <div class="row my-5">
+                <div class="col-sm-10 mx-auto">
+                  <form action="" method="post" enctype="multipart/form-data" class="my-4 rounded bg-light text-dark shadow-lg p-5">
+                    {% csrf_token %}
+                    Select Program:
+                    <select name="program" id="" class="border border-1 ps-3 bg-light text-dark form-control rounded-pill">
+                        <option value="">-- Select Program--</option>
+                        {%for p in pr %}
+                        <option value="{{p.pname}}">{{p.pname}}</option>
+                        {%endfor%}
+                    
+                    </select>
+                
+                    <br><br>
+                    Select Branch:
+                    <select name="branch" id="" class="border border-1ps-3 bg-light text-dark form-control rounded-pill"><option value="">-- Select Branch--</option>
+                    {%for b in br %}
+                        <option value="{{b.bname}}">{{b.bname}}</option>
+                    {%endfor%}
+                    </select>
+                
+                    <br><br>
+                    Select Year:
+                    <select name="year" id="" class="border border-1ps-3 bg-light text-dark form-control rounded-pill"><option value="">-- Select Year--</option>
+                    {%for y in yr %}
+                        <option value="{{y.yname}}">{{y.yname}}</option>
+                    {%endfor%}
+                    </select>
+                    <br><br>
+                    Enter Subject Name: 
+                    <input type=" text" name="subject" class="ps-3 bg-light text-dark form-control rounded-pill">
+                    <br><br>
+                    Enter File Name: 
+                    <input type=" text" name="file_name" class="ps-3 bg-light text-dark form-control rounded-pill">
+                    <br><br>
+                    Upload File:
+                    <input type="file" name="my_file" class="ps-3 bg-light text-dark form-control rounded-pill">
+                    <br><br>
+                    <input type="submit" value="Add Material" class="form-control btn btn-primary rounded-pill">
+                  </form>
+                </div>
+             </div>
+             <div class="row my-5">
+              <div class="col-sm-10 mx-auto table-responsive">
+                <table class="table table-light bg-light">
+                  <tr>
+                    <th>S.No</th>
+                    <th>Program</th>
+                    <th>Branch</th>
+                    <th>Year</th>
+                    <th>Subject</th>
+                    <th>File Name</th>
+                    <th>Uploaded File</th>
+                    <th colspan="2">Action</th>
+                  </tr>
+                  {% for n in material %}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{n.program}}</td>
+                    <td>{{n.branch}}</td>
+                    <td>{{n.year}}</td>
+                    <td>{{n.subject}}</td>
+                    <td>{{n.file_name}}</td>
+                    <td><a class="btn btn-sm btn-dark" download="true" target="_blank" href="/media/{{n.my_file}}">Download <i class="fa fa-download"></i></a></td>
+                    
+                  </tr>
+                  {% endfor %}
+                </table>
+              </div>
+             </div>
+        </div>
+    </div>
+{% endblock body %}

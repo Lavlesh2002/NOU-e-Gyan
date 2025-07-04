@@ -1,0 +1,29 @@
+{% extends "studentparent.html" %}
+{% block body %}
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 style="text-align:center; color: maroon;">News</h1>   
+             
+             <div class="row my-5">
+              <div class="col-sm-10 mx-auto table-responsive">
+                <table class="table table-light bg-light">
+                  <tr>
+                    <th>S.No</th>
+                    <th>News</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                  </tr>
+                  {%for n in news%}
+                  <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{n.ntitle}}</td>
+                    <td>{{n.ndesc}}</td>
+                    <td>{{n.ndate}}</td>
+                  </tr>
+                  {%endfor%}
+                </table>
+              </div>
+             </div>
+        </div>
+    </div>
+{% endblock body %}
