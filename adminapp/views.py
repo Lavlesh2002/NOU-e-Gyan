@@ -158,6 +158,10 @@ def studymaterial(request):
         return redirect('adminapp:studymaterial')
     return render(request,'adstudy.html',locals())
 
+def delstudy(request,id):
+    mat=Material.objects.filter(id=id)
+    mat.delete()
+    return redirect('adminapp:studymaterial')
 def editstudent(request,email):
     stu=Student.objects.get(email=email)
     log=Login.objects.get(userid=email)

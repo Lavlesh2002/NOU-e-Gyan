@@ -23,6 +23,7 @@ urlpatterns = [
     path('delfeedback/<id>',views.delfeedback,name="delfeedback"),
     path('viewcomplaint/',views.viewcomplaint,name="viewcomplaint"),
     path('viewenquiry',views.viewenquiry,name="viewenquiry"),
-    path('delenquiry/<id>',views.delenquiry,name="delenquiry")
+    path('delenquiry/<id>',views.delenquiry,name="delenquiry"),
+    path('delstudy/<id>',views.delstudy,name="delstudy")
 
 ]

@@ -59,7 +59,7 @@
                     <th>Subject</th>
                     <th>File Name</th>
                     <th>Uploaded File</th>
-                    <th colspan="2">Action</th>
+                    <th>Action</th>
                   </tr>
                   {% for n in material %}
                   <tr>
@@ -70,7 +70,7 @@
                     <td>{{n.subject}}</td>
                     <td>{{n.file_name}}</td>
                     <td><a class="btn btn-sm btn-dark" download="true" target="_blank" href="/media/{{n.my_file}}">Download <i class="fa fa-download"></i></a></td>
-                    
+                    <td><a href="{%url 'adminapp:delstudy' n.id%}" class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></a></td>
                   </tr>
                   {% endfor %}
                 </table>
